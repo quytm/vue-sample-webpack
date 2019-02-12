@@ -62,7 +62,15 @@ export default {
     theme: 'Theme',
     clipboardDemo: 'Clipboard',
     i18n: 'I18n',
-    externalLink: 'External Link'
+    externalLink: 'External Link',
+    register: 'Register'
+  },
+  register: {
+    register: 'Register',
+    title: 'Register Form',
+    username: 'Username',
+    password: 'Password',
+    passwordConfirm: 'Confirm Password'
   },
   navbar: {
     logOut: 'Log Out',

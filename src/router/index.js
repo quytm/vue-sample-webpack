@@ -61,6 +61,11 @@ export const constantRouterMap = [
     hidden: true
   },
   {
+    path: '/register',
+    component: () => import('@/views/register/Register'),
+    hidden: false
+  },
+  {
     path: '',
     component: Layout,
     redirect: 'dashboard',
@@ -117,6 +122,20 @@ export const asyncRouterMap = [
   /** When your routing table is too long, you can split it into small modules**/
   componentsRouter,
 
+  // {
+  //   path: '/register',
+  //   component: Layout,
+  //   redirect: 'noredirect',
+  //   children: [
+  //     {
+  //       path: '',
+  //       component: () => import('@/views/register/Register'),
+  //       name: 'Register',
+  //       meta: { title: 'Register', icon: 'Register' }
+  //     }
+  //   ]
+  // },
+
   {
     path: '/example',
     component: Layout,
@@ -159,17 +178,6 @@ export const asyncRouterMap = [
         component: () => import('@/views/theme/index'),
         name: 'Theme',
         meta: { title: 'theme', icon: 'theme' }
-      }
-    ]
-  },
-
-  {
-    path: 'external-link',
-    component: Layout,
-    children: [
-      {
-        path: 'https://github.com/PanJiaChen/vue-element-admin',
-        meta: { title: 'externalLink', icon: 'link' }
       }
     ]
   },
