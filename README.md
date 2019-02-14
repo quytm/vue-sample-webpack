@@ -4,7 +4,9 @@
 
 Project được dựng dựa trên [vue-element-admin](http://panjiachen.github.io/vue-element-admin). 
 
-## Getting started
+## Command line cơ bản
+
+### Run
 
 ```bash
 # install dependency
@@ -16,7 +18,7 @@ npm run dev
 
 Truy cập http://localhost:9527.
 
-## Build
+### Build
 
 ```bash
 # build for test environment
@@ -26,7 +28,7 @@ npm run build:sit
 npm run build:prod
 ```
 
-## Advanced
+### Advanced
 
 ```bash
 # --report to build with bundle size analytics
@@ -45,7 +47,31 @@ npm run lint
 npm run lint -- --fix
 ```
 
-## Tạo mới một page
+## Structure
+
+```
+
+Project/
+├── build/     => Chứa thông tin build webpack
+├── config/    => Các config của app, bao gồm cả env (dev, test, prod)
+│   ├── bootstrap.js
+│   └── bootstrap.min.js
+└── src/
+|   ├── 
+|   ├── 
+|   └── permission.js
+├── static/    => static files
+│   └── tinymce4.7.5/     => tinymce
+|
+
+    
+    
+```
+
+
+## Hướng dẫn khi tạo mới một trang
+
+### Tạo trang
 
 Tạo page mới có tên là `Register`
 
@@ -76,6 +102,8 @@ export default {
   /*template*/
 </style>
 ``` 
+
+### Khai báo router
 
 - Khai báo Register trong Router (`src/router/index.js`):
 
@@ -115,9 +143,13 @@ export default {
 Trong trường hợp define pages thuộc sidebar, cần chú ý tới `meta` trong đó `title`
 phải được định nghĩa trong `i18n`, `icon='Register'` tương ứng với `Register.svg`
 
-Kết thúc, truy cập `http://localhost:9527/#/register` để xem thành quả.
+Sau bước này, ta có thể truy cập `http://localhost:9527/#/register` để xem thành quả.
 
-## i18n
+***Chú ý***: *Mặc định, các trang được tạo mới luôn cầu đăng nhập để truy cập
+do đó nếu trang này là public, cần phải add nó vào whitelist nằm trong
+ `/src/permission.js`*
+
+### i18n
 
 Khi text cần support đa ngôn ngữ, ta chỉ việc thêm chúng vào trong `/src/lang/<language>.js`
 
@@ -150,7 +182,7 @@ Cách sử dụng:
   $t('register.password')
 ```
 
-## Call API
+### Call API
 
 Mỗi page tương ứng 1 file trong `/src/api/`
 Với trang `Register` ta sẽ có file `/src/api/register.js`
@@ -194,12 +226,13 @@ import { register } from '../../api/register'
 ```
 
 
+## Bonus
 
-## Coding convention
+### Coding convention
 
 Tham khảo chi tiết tại [Style Guide](https://vuejs.org/v2/style-guide/)
 
-## Theme
+### Theme
 
 Có thể setup nhiều theme trên project
 
@@ -217,10 +250,10 @@ et -i
 et
 gulp
 ```
-Output nằm trong thư mục `\dist`
+Output nằm trong thư mục `\dist`, sau đó, copy ouput này vào `/src/assets/` của dự án
 
 Tham khảo chi tiết: [Theme](https://panjiachen.github.io/vue-element-admin-site/guide/advanced/theme.html)
 
 ## Online Demo
 
-[Preview](http://panjiachen.github.io/vue-element-admin)
+Bản online của [vue-element-admin](http://panjiachen.github.io/vue-element-admin)
