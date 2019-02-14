@@ -62,7 +62,7 @@ export const constantRouterMap = [
   {
     path: '/register',
     component: () => import('@/views/register/Register'),
-    hidden: false
+    hidden: true
   },
   {
     path: '',

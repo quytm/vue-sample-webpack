@@ -5,7 +5,6 @@
         <h3 class="title">
           {{ $t('register.title') }}
         </h3>
-        <lang-select class="set-language" />
       </div>
 
       <el-form-item prop="username">
@@ -38,6 +37,8 @@
 </template>
 
 <script>
+import { register } from '../../api/register'
+
 export default {
   name: 'Register',
   data() {
@@ -51,7 +52,16 @@ export default {
   },
   methods: {
     handleRegister() {
-      alert(`Register for ${this.registerForm.username} ahihi`)
+      const { username, password, confirmPassword } = this.registerForm
+      register(username, password, confirmPassword).then(res => {
+        console.log(res.data)
+        if (res.data.success) {
+          alert(`Register for ${this.registerForm.username} successfully. Will redirect to login page`)
+          this.$router.push({
+            path: '/login'
+          })
+        }
+      })
     }
   }
 }
@@ -64,6 +74,6 @@ export default {
   }
 
   .register-form {
-    width: 50%;
+    width: 20%;
   }
 </style>

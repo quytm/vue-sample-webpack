@@ -2,6 +2,7 @@ import Mock from 'mockjs'
 import loginAPI from './login'
 import articleAPI from './article'
 import transactionAPI from './transaction'
+import registerAPI from './register'
 
 // 修复在使用 MockJS 情况下，设置 withCredentials = true，且未被拦截的跨域请求丢失 Cookies 的问题
 // https://github.com/nuysoft/Mock/issues/300
@@ -28,5 +29,7 @@ Mock.mock(/\/article\/create/, 'post', articleAPI.createArticle)
 Mock.mock(/\/article\/update/, 'post', articleAPI.updateArticle)
 
 Mock.mock(/\/transaction\/list/, 'get', transactionAPI.getList)
+
+Mock.mock(/\/register/, 'post', registerAPI.register)
 
 export default Mock

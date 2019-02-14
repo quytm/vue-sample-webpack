@@ -80,7 +80,7 @@ export default {
 - Khai báo Register trong Router (`src/router/index.js`):
 
 
-```json
+```
   # Trang độc lập
   constantRouterMap {
     ...,
@@ -153,6 +153,45 @@ Cách sử dụng:
 ## Call API
 
 Mỗi page tương ứng 1 file trong `/src/api/`
+Với trang `Register` ta sẽ có file `/src/api/register.js`
+
+```js
+import request from '@/utils/request'
+
+export function register(username, password, confirmPassword) {
+  const data = {
+    username,
+    password,
+    confirmPassword
+  }
+  return request({
+    url: '/register',
+    method: 'post',
+    data
+  })
+}
+```
+
+Sau đó gọi api, 
+
+```vue
+import { register } from '../../api/register'
+
+...
+
+  methods: {
+    handleRegister() {
+      const { username, password, confirmPassword } = this.registerForm
+      register(username, password, confirmPassword).then(res => {
+        if (res.data.success) {
+          this.$router.push({
+            path: '/login'
+          })
+        }
+      })
+    }
+  }
+```
 
 
 
