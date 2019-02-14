@@ -31,12 +31,6 @@ const componentsRouter = {
       meta: { title: 'splitPane' }
     },
     {
-      path: 'avatar-upload',
-      component: () => import('@/views/components-demo/avatarUpload'),
-      name: 'AvatarUploadDemo',
-      meta: { title: 'avatarUpload' }
-    },
-    {
       path: 'dropzone',
       component: () => import('@/views/components-demo/dropzone'),
       name: 'DropzoneDemo',
