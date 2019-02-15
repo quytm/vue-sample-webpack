@@ -1,5 +1,7 @@
 # Vuejs base project
 
+<a href="https://web.higgsup.com/"><img src="higgsup-logo.png"></a>
+
 ## Introduction
 
 Project được dựng dựa trên [vue-element-admin](http://panjiachen.github.io/vue-element-admin). 
