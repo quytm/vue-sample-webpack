@@ -56,16 +56,31 @@ npm run lint -- --fix
 Project/
 ├── build/     => Chứa thông tin build webpack
 ├── config/    => Các config của app, bao gồm cả env (dev, test, prod)
-│   ├── bootstrap.js
-│   └── bootstrap.min.js
 └── src/
-|   ├── 
-|   ├── 
+|   ├── api               => tạo các request tới api, có sử dụng /utils/request
+|   ├── assets            => chứa assets, trong đó có custom-theme (multi theme)
+|   ├── components        => các components nhỏ của app
+|   ├── directive         => các directive như v-permission, ...
+|   ├── filters           => filters: format date, time, number, ...
+|   ├── icons             => icons của app, ví dụ: dùng cho menubar
+|   ├── lang              => chứa data cà config cho i18n
+|   ├── mock              => mock api, không cần thiết backend vẫn có thể test
+|   ├── router            => định nghĩa router, có thể chia nhỏ route thành nhiều modules để quản lý
+|   ├── store             => quản lý state trong app sử dụng Vuex
+|   ├── styles            => global styles 
+|   ├── utils             => các utils
+|   |   ├── auth.js                 => làm việc với token lưu trữ trong cookie
+|   |   ├── i18n.js                 => làm mượt title trong sidebar 
+|   |   ├── permission              => check permission, sử dụng cho ẩn hiển các element, component 
+|   |   ├── request.js              => sử dụng axios để request lên backend
+|   |   └── ...
+|   ├── views             => mỗi view tương ứng với 1 màn hình
+|   ├── App.vue
+|   ├── errorLog.js
+|   ├── main.js
 |   └── permission.js
-├── static/    => static files
-│   └── tinymce4.7.5/     => tinymce
-|
-
+└─── static/    => static files
+    └── tinymce4.7.5/     => tinymce
     
     
 ```
